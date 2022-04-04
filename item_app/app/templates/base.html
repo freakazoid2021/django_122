@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -21,8 +21,12 @@
         <div class="wrapper">
             <!-- navbar -->
             <header>
-                <nav>
-
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="col-sm">
+                        <a class="navbar-brand flex-grow-1" style="text-align: center; color: white; margin-left: 30px;">
+                            {% block navbar-content %} {% endblock navbar-content %}
+                        </a>
+                    </div>
                 </nav>
             </header>
 
@@ -33,8 +37,14 @@
         </div>
 
         <!-- footer -->
-        <footer>
-            <h1>Footer</h1>
+        <footer class="bg-dark text-center text-lg-start" id="footer" style="color: white;">
+            <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright:
+                <a class="text-light" href="#" style="text-decoration: none;"> 
+                    <span class="text-warning">
+                        http://htmlbook.ru/ 
+                    </span>
+                </a>
+            </div>
         </footer>
 
         <!-- bootstrap js -->
