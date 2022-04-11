@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
     <br><br>
-    <a href="{% url 'add_product' %}" class="btn btn-outline-secondary btn-sm">
+    <a href="{% url 'add_product' %}" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">
         <i class="fa fa-plus"></i>&nbsp;&nbsp; Add product
     </a>
     <table href="table table-bordered table-sm mt-4" style="align: center; font-size: 14px;">
@@ -33,17 +33,20 @@
             <td>{{ product.gender }}</td>
             <td>{{ product.created_at | date:'d/m/Y (H:i)'}}</td>
             <td>
-                <a href="/product/{{ product.id }}" class="btn btn-warning" title="Edit product">
+                <a class="btn btn-warning" title="Edit product" data-bs-toggle="modal" data-bs-target="#editModal{{product.pk}}">
                     <i class="fas fa-pen"></i>
                 </a>
             </td>
             <td>
                 <a href="/delete_product/{{ product.id }}" class="btn btn-secondary" title="Delete product">
-                    <i class="fas fa-trash-can"></i>
+                    <i class="fas fa-trash-alt"></i>
                 </a>
             </td>
 
         </tr>
+
+        <!-- include (required to get primary key)-->
+        {% include 'edit.html' %}
         {% endfor %}
     </table>
 </div>

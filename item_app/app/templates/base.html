@@ -33,19 +33,21 @@
             <!-- block content -->
             {% block content %} {% endblock content %}
 
+            <!-- include -->
+            {% include 'add.html' %}
 
+
+            <!-- footer -->
+            <footer class="bg-dark text-center text-lg-start" id="footer" style="color: white;">
+                <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright:
+                    <a class="text-light" href="#" style="text-decoration: none;"> 
+                        <span class="text-warning">
+                            http://htmlbook.ru/ 
+                        </span>
+                    </a>
+                </div>
+            </footer>
         </div>
-
-        <!-- footer -->
-        <footer class="bg-dark text-center text-lg-start" id="footer" style="color: white;">
-            <div class="text-center p-3" style="background-color: rgba(0,0,0,0.2);">&copy; {% now "Y" %} Copyright:
-                <a class="text-light" href="#" style="text-decoration: none;"> 
-                    <span class="text-warning">
-                        http://htmlbook.ru/ 
-                    </span>
-                </a>
-            </div>
-        </footer>
 
         <!-- bootstrap js -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
