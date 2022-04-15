@@ -1,0 +1,35 @@
+{% extends 'add.html' %}
+<!-- modal ID -->
+{% block modal-id %} id="editModal{{ product.pk }}" {% endblock modal-id %}
+
+<!-- modal title -->
+{% block modal-title %}<i class="fas fa-edit"></i>&nbsp;&nbsp;Edit Product{% endblock modal-title %}
+
+<!-- form action -->
+{% block action %} action="/edit_product" {% endblock action %}
+
+<!-- button action -->
+{% block btn-action %} <i class="fas fa-server"></i> &nbsp;&nbsp;Save changes {% endblock btn-action %} 
+
+<!-- inputs -->
+<!-- id -->
+{% block value-id %}
+<div class="input-group mb-3">
+    <span class="side-label btn border-secondary bg-ligth"><i class="fas fa-key"></i></span>
+    <input type="text" class="form-control" name="id" value="{{ product.id }}" readonly>
+</div>
+{% endblock value-id %}
+<!-- product -->
+{% block value-product %} value="{{product.product}}" {% endblock value-product %}
+<!-- purchase -->
+{% block value-purchase %} value="{{product.purchase}}" {% endblock value-purchase %}
+<!-- sale -->
+{% block value-sale %} value="{{product.sale}}" {% endblock value-sale %}
+<!-- qty -->
+{% block value-qty %} value="{{product.qty}}" {% endblock value-qty %}
+<!-- gender -->
+{% block option %} 
+<option style="background-color: white; color: white">{{product.gender}}</option>
+{% endblock option %}
+<!-- note -->
+{% block value-note %} value="{{product.note}}" {% endblock value-note %}

@@ -15,6 +15,8 @@
         <link href={% static "/img/logo.svg" %} rel="shortcut icon">
         <!-- css -->
         <link href={% static "/css/style.css" %} rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+
         <title>{% block title %} Home {% endblock title %}</title>
     </head>
     <body>
@@ -51,5 +53,61 @@
 
         <!-- bootstrap js -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        <!-- jquery-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <!-- datatables js -->
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <script>
+            $("#search").on("keyup", function () {
+                var value = $(this).val();
+
+                $("table tr").each(function(e) {
+                    if (e !== 0) {
+                        $go = $(this)
+
+                        $go.find('td').each( function() {
+                            var id = $(this).text();
+    
+                            if(id.indexOf(value) !== 0 && id.toLowerCase().indexOf(value.toLowerCase()) < 0){
+                                $go.hide();
+                            }
+                            else {
+                                $go.show();
+                                return false;
+                            }
+                        });
+                    }                    
+                
+                    var isNone = $("#myTable tr:not('.chk-th'):visible");
+
+                    if (isNone.length == 0) {
+                        $("#no-data").text("No product found").show();
+                    }
+                    else {
+                        $("#no-data").text("No product found").hide();
+                    }
+                });
+            });
+        </script>
+
+        <!-- datatables pagination -->
+        <script>
+            $("#myTable").DataTable({
+                pagination: true,
+                pageLength: 2,
+                lengthChange: false,
+                autoWidth: false,
+                searching: false,
+                bInfo: true,
+                bSort: true,
+            })
+        </script>
+
     </body>
 </html>
